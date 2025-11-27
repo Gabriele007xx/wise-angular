@@ -1,5 +1,6 @@
 import { Router } from "express";
 import {getDb} from "../../database/db.js";
+import bcrypt from "bcrypt";
 
 const routerUsers = Router();
 
@@ -17,14 +18,17 @@ routerUsers.get("/", async (req, res) => {
   }
 });
 
-routerUsers.post("/", async (req, res) => {
+routerUsers.post("/register/", async (req, res) => {
   let db = await getDb();
   const { name, email, password } = req.body;
 
+  // to do: aggiungere validazioni
+
   try {
+    const hashedPassword = await bcrypt.hash(password, 10);
     const result = await db.run(
       "INSERT INTO users (name, email, password) VALUES (?, ?, ?)",
-      [name, email, password]
+      [name, email, hashedPassword]
     );
     return res.status(201).json({ id: result.lastID, name, email, message: "User created successfully"});
   } catch (error) {

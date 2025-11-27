@@ -29,6 +29,12 @@ let db = await getDb();
         symbol TEXT NOT NULL
     );
 
+    CREATE TABLE IF NOT EXISTS auth(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        userId INTEGER UNIQUE,
+        token TEXT
+        );
+
     INSERT INTO currencies (name, code, symbol) VALUES
         ('US Dollar', 'USD', '$'),
         ('Euro', 'EUR', '€'),
