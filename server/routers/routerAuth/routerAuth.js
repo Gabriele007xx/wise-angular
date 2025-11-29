@@ -24,6 +24,7 @@ routerAuth.post('/login', async (req, res) => {
         return res.status(409).json({ error: 'User already logged in.' });
     }
     const match = await bcrypt.compare(password, user.password);
+    
 
     if(match)
     {
