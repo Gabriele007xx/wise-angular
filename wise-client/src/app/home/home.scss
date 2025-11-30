@@ -2,6 +2,10 @@
   background-image: url(../../assets/money.png);
   background-position: right bottom, left top;
   background-repeat: no-repeat, repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
 }
 
 .banner h1 {
