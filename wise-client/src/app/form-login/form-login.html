@@ -1,1 +1,12 @@
-<p>form-login works!</p>
+<form action="http://localhost:3000/auth/login" method="post">
+  <h2>Accedi al tuo account</h2>
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required />
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required />
+  </div>
+  <button type="submit">Accedi</button>
+</form>

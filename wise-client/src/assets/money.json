@@ -1,0 +1,25 @@
+{
+    "Holding":
+    [
+        {
+            "currency": "EUR",
+            "amount": 1500.00,
+            "symbol": "€"
+        },
+        {
+            "currency": "USD",
+            "amount": 2000.00,
+            "symbol": "$"
+        },
+        {
+            "currency": "GBP",
+            "amount": 1000.00,
+            "symbol": "£"
+        },
+        {
+            "currency": "JPY",
+            "amount": 300000.00,
+            "symbol": "¥"
+        }
+    ]
+}
