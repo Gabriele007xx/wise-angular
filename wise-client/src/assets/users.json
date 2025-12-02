@@ -3,11 +3,13 @@
     [{
         "id": 1,
         "name": "Giuseppe Rossi",
-        "email": "giuseppe.rossi@example.com"
+        "email": "giuseppe.rossi@example.com",
+        "password": "password123"
     },
     {
         "id": 2,
         "name": "Maria Bianchi",
-        "email": "maria.bianchi@example.com"
+        "email": "maria.bianchi@example.com",
+        "password": "securepass456"
     }]
 }
