@@ -15,6 +15,8 @@ export class Tabella {
   @Input() results: number = 0;
   valuta = new FormControl('');
   quantity = new FormControl('');
+  valuta1 = new FormControl('');
+
 currencyEuro : number = 0;
 constructor(private readonly authService: AuthService, private readonly httpClient: HttpClient, private readonly router:Router)
 {
@@ -75,4 +77,21 @@ addMoney()
   }});
 }
  
+deleteMoney()
+{
+      const header = {
+    'Authorization': 'Bearer ' + this.authService.getAccessToken()
+  };
+  const body = {
+    currency: this.valuta1.value
+  };
+     
+    this.httpClient.post('http://localhost:1337/api/holdings/delete'+this.id, body, {headers: header}).subscribe({ next: (result: any) => {
+    alert('Valuta eliminata!');
+    this.router.navigate(['/dashboard'])
+  },
+  error: (error) => {
+    alert('Valuta non eliminata: ' + error.message);
+  }});
+}
 }

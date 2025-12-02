@@ -21,9 +21,10 @@
    </tr> 
 </table>
 }
+
 <div>
 <form>
-    <label>Valuta:</label>
+    <label>Aggiungi Valuta:</label>
     <select [formControl]="valuta" id="valuta" required>
   <option value="1">USD</option>
   <option value="2">EUR</option>
@@ -32,7 +33,17 @@
    <label>Quantità:</label> 
    <input type="number" [formControl]="quantity" id="quantity"/>
    <button type="button" (click)="addMoney()">Aggiungi</button>
+   <br>
+   <label>Elimina Valuta:</label>
+    <select [formControl]="valuta1" id="valuta1" required>
+  <option value="1">USD</option>
+  <option value="2">EUR</option>
+  <option value="3">GBP</option>
+    </select>
+  <button type="button" (click)="deleteMoney()">Elimina</button>
 </form>
 </div>
+
+
 
 
