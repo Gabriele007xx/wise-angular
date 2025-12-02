@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-register',
@@ -13,7 +14,7 @@ export class FormRegister {
   email = new FormControl('');
   password = new FormControl('');
 
-  constructor(private readonly http : HttpClient) {}
+  constructor(private readonly http : HttpClient, private readonly router: Router) {}
 register() {
 const userData = {
   name: this.name.value,
@@ -23,6 +24,7 @@ const userData = {
 this.http.post('http://localhost:1337/api/users/register/', userData).subscribe({
   next: (result: any) => {
     alert('Registration successful!');
+    this.router.navigate(['/login'])
   },
   error: (error) => {
     alert('Registration failed: ' + error.error.message);

@@ -2,12 +2,9 @@
 
 <div class="banner">
   <h1>Flexa il tuo patrimonio.</h1>
-  @if(token != null && token != 'none')
-  {
+  @if(token != null) {
     <app-button label="Vai al Dashboard" link="/dashboard"></app-button>
-  }
-  @else
-  {
+  } @else {
   <div class="container-button" style="display: flex; flex-direction: row;  justify-content: space-between;">
         <app-button label="Registrati" link="/register"></app-button>
         <app-button label="Accedi" link="/login"></app-button>

@@ -1,0 +1,38 @@
+@if(results == 0)
+{
+    <p>Nessun dato disponibile.</p>
+} @else {
+    <table>
+    <tr>
+        <th>Valuta</th>
+        <th>Quantità</th>
+        <th>Simbolo</th>
+    </tr>
+    @for(row of data; track data.length;) {
+        <tr>
+            <td>{{row.name}}</td>
+            <td>{{row.amount}}</td>
+            <td>{{row.code}}</td>
+        </tr>
+    }
+   <tr>
+         <td>Totale in &euro;:</td>
+         <td colspan="2">{{currencyEuro}}</td>
+   </tr> 
+</table>
+}
+<div>
+<form>
+    <label>Valuta:</label>
+    <select [formControl]="valuta" id="valuta" required>
+  <option value="1">USD</option>
+  <option value="2">EUR</option>
+  <option value="3">GBP</option>
+    </select>
+   <label>Quantità:</label> 
+   <input type="number" [formControl]="quantity" id="quantity"/>
+   <button type="button" (click)="addMoney()">Aggiungi</button>
+</form>
+</div>
+
+

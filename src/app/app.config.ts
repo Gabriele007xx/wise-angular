@@ -2,17 +2,15 @@ import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/
 import { provideRouter } from '@angular/router';
 import { JWT_OPTIONS,JwtHelperService } from '@auth0/angular-jwt';
 import { routes } from './app.routes';
-import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 
-function tokenGetter() {
+function getterToken() {
   return localStorage.getItem('accessToken');
 }
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideRouter(routes), 
-    // provideClientHydration(withEventReplay())
+    provideRouter(routes),
     JwtHelperService,
-    { provide: JWT_OPTIONS, useValue: { tokenGetter } },
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
   ]
 };
