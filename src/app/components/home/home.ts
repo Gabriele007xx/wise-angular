@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Button } from '../button/button';
-import { AuthService } from '../../auth.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -9,12 +9,14 @@ import { AuthService } from '../../auth.service';
   styleUrl: './home.scss',
 })
 export class Home {
-    token: String | null = null;
+    token: string | null = null;
     id: number | null = null;
     constructor(private readonly authService: AuthService) {}
 
     ngOnInit() {
-      console.log("Home component initialized",this.authService.isLoggedIn());
+      console.log("Home component initialized",this.authService.userId());
+      this.token =  this.authService.getAccessToken();
+      console.log(this.token);
     };
 
 }

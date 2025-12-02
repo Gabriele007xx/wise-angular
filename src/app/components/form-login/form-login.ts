@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { IdService } from '../id.service';
 import { HttpClient } from '@angular/common/http';
-import { AuthService } from '../../auth.service';
+import { AuthService } from '../..//auth/auth.service';
 import {  Router } from '@angular/router';
 
 @Component({
@@ -13,7 +12,7 @@ import {  Router } from '@angular/router';
 })
 export class FormLogin {
 
-  constructor(private IdService: IdService,private readonly http: HttpClient,private readonly authService: AuthService,private readonly router:Router) {}
+  constructor(private readonly http: HttpClient,private readonly authService: AuthService,private readonly router:Router) {}
   email = new FormControl('');
   password = new FormControl('');
 
