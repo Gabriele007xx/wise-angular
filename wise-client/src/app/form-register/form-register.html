@@ -1,10 +1,7 @@
-<form action="http://localhost:3000/api/users/register/" method="post">
+<form >
     <h2>Registrati</h2> 
-    <input type="text" name="name" placeholder="Nome" required id="name"/>
-    <input type="email" name="email" placeholder="Email" required />
-    <input type="password" name="password" placeholder="Password" required />
-    <button type="submit">Registrati</button>
+    <input type="text" [formControl]="name" placeholder="Nome" required id="name"/>
+    <input type="email" [formControl]="email" placeholder="Email" required id="email"/>
+    <input type="password" [formControl]="password" placeholder="Password" required id="password"/>
+    <button type="button" (click)="register()">Registrati</button>
 </form>
-
-
-<script src=""></script>
